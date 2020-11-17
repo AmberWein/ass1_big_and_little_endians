@@ -42,12 +42,5 @@ int main() {
     }
     printf(">> Check 3 - FINISHED\n");
 
-    // printf("0x%lx\n", merge_bytes(0x89ABCDEF12893456, 0x76543210ABCDEF19));
-    // printf("0x%lx\n", merge_bytes(0x89ABCDEF12893456, 0x76543210ABCDEF19));
-    // printf("0x%lx\n", put_byte(0x12345678CDEF3456, 0xAB, 7));
-    // printf("0x%lx\n", put_byte(0x12345678CDEF3456, 0xAB, 5));
-    // printf("0x%lx\n", put_byte(0x12345678CDEF3456, 0xAB, 0));
-    // printf("0x%lx\n", merge_bytes(0x56348912EFCDAB89, 0x19EFCDAB10325476));
-    // printf("0x%lx\n", put_byte(0x5634EFCD78563412, 0xAB, 5));
 
 }
