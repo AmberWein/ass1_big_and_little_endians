@@ -6,7 +6,7 @@
  */
 int is_big_endian() {
     long number_for_testing = 1;
-    char *chars_of_the_number = (char *) &number_for_testing;
+    char *chars_of_the_number = (char*)&number_for_testing;
     // check if it is little endian
     if (*chars_of_the_number == 1)
         return 0;
@@ -25,12 +25,12 @@ int is_big_endian() {
  */
 unsigned long merge_bytes(unsigned long x, unsigned long int y) {
     // shift right, moves on byte right (last byte was removed)
-    x = x >> 8u;
+    x = x >> 32u;
     // put '00' on the last byte
-    x = x << 8u;
+    x = x << 32u;
     // take the first byte from y
-    y = y & 0xFFu;
-    return y|x;
+    y = y & 0xFFFFFFFFu;
+    return y | x;
 }
 
 /**
@@ -46,16 +46,16 @@ unsigned long put_byte(unsigned long x, unsigned char b, int i) {
     /** check if the system works with little endian or big endian
      * and update x accordingly */
     if(is_big_endian()) {
-        int length = sizeof(x);
-        // moves the pointer to the i-th place
-        starting_point += (length-1) - i;
-    } else {
-        // little endian
         // moves the pointer to the i-th byte
         starting_point += i;
+    } else {
+        // little endian
+        int length = sizeof(x);
+        // moves the pointer to the i-th place
+        starting_point += (length - 1) - i;
     }
     // change the value to b
-    *starting_point = b;
+    *starting_point = (char)b;
     return x;
 }
 
